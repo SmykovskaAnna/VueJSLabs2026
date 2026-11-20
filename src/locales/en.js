@@ -1,6 +1,7 @@
 export default {
   app: {
-    title: 'My Shop',
+    title: 'HEROBOX',
+    subtitle: 'Collect your favorite heroes',
     catalog: 'Catalog',
     cart: 'Cart',
     profile: 'Profile',
@@ -8,9 +9,42 @@ export default {
   },
 
   catalog: {
-    title: 'Our Products',
+    title: 'Collectible Figures',
+    subtitle: 'Find a hero from your favorite universe',
     add: 'Add to cart',
-    price: 'Price'
+    price: 'Price',
+    products: [
+      {
+        name: 'Spider-Man',
+        description: 'The legendary Marvel hero',
+        category: 'Marvel'
+      },
+      {
+        name: 'Darth Vader',
+        description: 'The dark lord of the galaxy',
+        category: 'Star Wars'
+      },
+      {
+        name: 'Harry Potter',
+        description: 'The boy who lived',
+        category: 'Harry Potter'
+      },
+      {
+        name: 'Shrek',
+        description: 'The most famous ogre',
+        category: 'Animation'
+      },
+      {
+        name: 'Iron Man',
+        description: 'Genius inventor and superhero',
+        category: 'Marvel'
+      },
+      {
+        name: 'Grogu',
+        description: 'A little hero of a big galaxy',
+        category: 'Star Wars'
+      }
+    ]
   },
 
   cart: {
