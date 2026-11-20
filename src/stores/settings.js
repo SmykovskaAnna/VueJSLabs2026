@@ -19,6 +19,15 @@ export const useSettingsStore = defineStore('settings', {
 
     saveProfile(profile) {
       this.profile = profile
+    },
+    
+  clearProfile() {
+      this.profile = {
+        name: '',
+        email: '',
+        password: '',
+        phone: ''
+      }
     }
   },
 

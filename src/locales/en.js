@@ -59,6 +59,14 @@ export default {
       email: 'Enter a valid email address',
       password: 'Password must contain at least 6 characters',
       phone: 'Enter a valid phone number'
-    }
+    },
+    description: 'Manage your HEROBOX account.',
+    personalInfo: 'Your personal information',
+    editProfile: 'Edit profile',
+    logout: 'Log out',
+    createProfile: 'Create profile',
+    formDescription: 'Enter your personal information',
+    cancel: 'Cancel',
+    confirmLogout: 'Are you sure you want to log out?',
   }
 }

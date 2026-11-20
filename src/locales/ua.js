@@ -59,6 +59,16 @@ export default {
       email: 'Введіть правильну електронну пошту',
       password: 'Пароль повинен містити мінімум 6 символів',
       phone: 'Введіть правильний номер телефону'
-    }
+    },
+    description: 'Керуй своїм обліковим записом HEROBOX.',
+    personalInfo: 'Твоя особиста інформація',
+    editProfile: 'Редагувати профіль',
+    logout: 'Вийти з профілю',
+    createProfile: 'Створити профіль',
+    formDescription: 'Заповни свої особисті дані',
+    cancel: 'Скасувати',
+    confirmLogout: 'Ти дійсно хочеш вийти з профілю?',
+    namePlaceholder: "Введи своє ім'я",
+    passwordPlaceholder: 'Мінімум 6 символів',
   }
 }

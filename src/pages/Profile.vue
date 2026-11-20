@@ -1,11 +1,11 @@
-
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSettingsStore } from '../stores/settings'
 
 const { t } = useI18n()
 const settings = useSettingsStore()
+const isEditing = ref(false)
 
 const form = reactive({
   name: settings.profile.name,
@@ -21,11 +21,39 @@ const errors = reactive({
   phone: ''
 })
 
-function validateForm() {
+const isLoggedIn = computed(() => {
+  return settings.profile.name.trim() !== '' &&
+    settings.profile.email.trim() !== ''
+})
+
+function fillForm() {
+  form.name = settings.profile.name
+  form.email = settings.profile.email
+  form.password = settings.profile.password
+  form.phone = settings.profile.phone
+}
+
+function clearErrors() {
   errors.name = ''
   errors.email = ''
   errors.password = ''
   errors.phone = ''
+}
+
+function editProfile() {
+  fillForm()
+  clearErrors()
+  isEditing.value = true
+}
+
+function cancelEdit() {
+  fillForm()
+  clearErrors()
+  isEditing.value = false
+}
+
+function validateForm() {
+  clearErrors()
 
   let valid = true
 
@@ -58,8 +86,24 @@ function saveProfile() {
   }
 
   settings.saveProfile({ ...form })
+  isEditing.value = false
 
   alert(t('profile.success'))
+}
+
+function logout() {
+  if (confirm(t('profile.confirmLogout'))) {
+    settings.clearProfile()
+    clearErrors()
+    isEditing.value = true
+    fillForm()
+  }
+}
+
+if (isLoggedIn.value) {
+  fillForm()
+} else {
+  isEditing.value = true
 }
 </script>
 
@@ -68,16 +112,56 @@ function saveProfile() {
     <div class="page-heading">
       <span class="eyebrow">YOUR ACCOUNT</span>
       <h1>{{ t('profile.title') }}</h1>
-      <p>Manage your HEROBOX account.</p>
+      <p>{{ t('profile.description') }}</p>
     </div>
 
     <div class="profile-card">
+
+      <template v-if="isLoggedIn && !isEditing">
       <div class="profile-avatar">👤</div>
 
-      <h2>{{ form.name || 'HEROBOX USER' }}</h2>
+      <h2>{{ settings.profile.name }}</h2>
       <p class="profile-description">
-        Your personal information
+        {{ t('profile.personalInfo') }}
       </p>
+
+      <div class="profile-details">
+        <div class="detail-item">
+          <strong>{{ t('profile.name') }}:</strong>
+          <span>{{ settings.profile.name }}</span>
+        </div>
+        <div class="detail-item">
+          <strong>{{ t('profile.email') }}:</strong>
+          <span>{{ settings.profile.email }}</span>
+        </div>
+        <div class="detail-item">
+          <strong>{{ t('profile.phone') }}:</strong>
+          <span>{{ settings.profile.phone }}</span>
+        </div>
+      </div>
+      
+      <div class="profile-actions">
+        <button class="save-button"
+        @click="editProfile"
+        >
+          {{ t('profile.editProfile') }}
+        </button>
+
+        <button class="logout-button"
+        @click="logout"
+        >
+          {{ t('profile.logout') }}
+        </button>
+      </div>
+      </template>
+
+      <template v-else>
+        <div class="profile-avatar">👤</div>
+
+        <h2> {{ isLoggedIn ? t('profile.editProfile') : t('profile.createProfile') }}</h2>
+        <p class="profile-description">
+          {{ t('profile.description') }}
+        </p>
 
       <form @submit.prevent="saveProfile">
         <div class="form-group">
@@ -131,7 +215,18 @@ function saveProfile() {
         <button type="submit" class="save-button">
           {{ t('profile.save') }}
         </button>
+
+        <button 
+        v-if="isLoggedIn"
+        type="button"
+        class="cancel-button"
+        @click="cancelEdit"
+        >
+          {{ t('profile.cancel') }}
+        </button>
       </form>
+    </template>
+
     </div>
   </div>
 </template>
@@ -196,6 +291,28 @@ function saveProfile() {
   margin: 8px 0 25px;
 }
 
+.profile-details {
+  margin: 25px 0;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eeeaf4;
+}
+
+.detail-item span {
+  color: #9992a5;
+  font-size: 12px;
+}
+
+.detail-item strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -225,7 +342,15 @@ function saveProfile() {
   font-size: 12px;
 }
 
-.save-button {
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.save-button,
+.logout-button,
+.cancel-button {
   width: 100%;
   padding: 14px;
   background: #8b5cf6;
@@ -237,7 +362,31 @@ function saveProfile() {
   margin-top: 8px;
 }
 
+.save-button {
+  background: #8b5cf6;
+  color: white;
+}
+
 .save-button:hover {
   background: #7042d8;
 }
+
+.logout-button {
+  background: #fff0f0;
+  color: #d94848;
+}
+
+.logout-button:hover {
+  background: #ffe2e2;
+}
+
+.cancel-button {
+  background: #f2eff7;
+  color: #77717f;
+}
+
+.cancel-button:hover {
+  background: #e9e3f2;
+}
+
 </style>
