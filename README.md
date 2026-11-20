@@ -1,38 +1,47 @@
-# vue-project
+# Лабораторна робота №1 — Vue.js 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Простий список завдань, створений за допомогою Vue 3 та Composition API.
 
-## Recommended IDE Setup
+## Запуск проєкту
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Відкрийте термінал у папці проєкту та виконайте:
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Vite покаже адресу локального сайту. Щоб створити production-збірку:
 
-```sh
+```bash
 npm run build
 ```
+
+## Можливості
+
+- Додавання, редагування й видалення завдань.
+- Перемикання статусу між активним і виконаним.
+- Фільтри за назвою, описом, статусом, пріоритетом і датою.
+- Збереження завдань у `localStorage`.
+- Лічильники та пагінація по п'ять завдань.
+
+## Реактивність у Vue
+
+- `ref` зберігає список завдань, номер сторінки та стани форм.
+- `reactive` зберігає поля форми та фільтрів.
+- `computed` обчислює лічильники, відфільтрований список і сторінки.
+- `watch` із `deep: true` зберігає зміни завдань у `localStorage`.
+
+## Директиви
+
+- `v-model` пов'язує поля форм і фільтрів зі станом.
+- `@submit` та `@click` обробляють дії користувача.
+- `:class`, `:disabled`, `:locale` та інші `v-bind` передають значення в атрибути компонентів.
+- `v-for` відображає завдання та номери сторінок.
+- `v-if` / `v-else` показують помилки, порожній список і форму редагування.
+- `v-show` використовується для показу пагінації, коли є кілька сторінок.
+
+Для календаря використано `@vuepic/vue-datepicker`; українську локаль надає `date-fns`.
+
+## Скріншоти
+![Список завдань](screenshots/screenshot.png)
