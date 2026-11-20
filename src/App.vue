@@ -85,9 +85,9 @@ function changeLanguage(lang) {
     <main class="main-content">
       <div class="hero-banner">
         <div>
-          <span class="hero-label">YOUR COLLECTION STARTS HERE</span>
-          <h1>Улюблені персонажі.<span>Твоя колекція.</span></h1>
-          <p>Відкрий світ культових героїв кіно, серіалів та мультфільмів.</p>
+          <span class="hero-label">{{ t('app.heroLabel') }}</span>
+          <h1>{{ t('app.heroTitle') }}</h1>
+          <p>{{ t('app.heroDescription') }}</p>
         </div>
       </div>
 

@@ -36,7 +36,7 @@ function formatPrice(price) {
           </div>
 
           <div class="item-info">
-            <h3>{{ item.title }}</h3>
+            <h3>{{ item.productIndex !== undefined ? t(`catalog.products.${item.productIndex}.name`) : item.title }}</h3>
             <p>{{ formatPrice(item.price) }}</p>
 
             <span>

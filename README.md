@@ -1,5 +1,33 @@
-# Vue 3 + Vite
+# Лабораторна робота №4 — HEROBOX
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Прототип інтернет-магазину на Vue 3 із Composition API, Pinia та vue-i18n. Дані зберігаються локально у браузері через `pinia-plugin-persistedstate`.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Можливості
+
+- Каталог колекційних фігурок із українськими й англійськими перекладами.
+- Кошик із додаванням, видаленням і очищенням товарів, кількістю та загальною сумою.
+- Сторінка профілю з перевіркою імені, email, пароля й телефону та збереженням у Pinia.
+- Вибір мови, який зберігається між перезапусками.
+
+## Запуск
+
+Потрібен Node.js із npm.
+
+```sh
+npm install
+npm run dev
+```
+
+Для production-збірки:
+
+```sh
+npm run build
+npm run preview
+```
+
+## Структура
+
+- `src/stores/settings.js` — мова та профіль користувача.
+- `src/stores/cart.js` — вміст і підрахунки кошика.
+- `src/i18n.js`, `src/locales/` — налаштування локалізації та переклади.
+- `src/pages/` — сторінки каталогу, кошика й профілю.

@@ -15,7 +15,7 @@ const products = [
 function addToCart(product, index) {
   cart.add({
     id: product.id,
-    title: t(`catalog.products.${index}.name`),
+    productIndex: index,
     price: product.price,
     emoji: product.emoji
   })

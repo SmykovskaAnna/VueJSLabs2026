@@ -169,7 +169,7 @@ if (isLoggedIn.value) {
           <input
             v-model="form.name"
             type="text"
-            placeholder="Your name"
+            :placeholder="t('profile.namePlaceholder')"
           />
           <span v-if="errors.name" class="error">
             {{ errors.name }}
@@ -193,7 +193,7 @@ if (isLoggedIn.value) {
           <input
             v-model="form.password"
             type="password"
-            placeholder="Minimum 6 characters"
+            :placeholder="t('profile.passwordPlaceholder')"
           />
           <span v-if="errors.password" class="error">
             {{ errors.password }}

@@ -5,7 +5,10 @@ export default {
     catalog: 'Каталог',
     cart: 'Кошик',
     profile: 'Профіль',
-    language: 'Мова'
+    language: 'Мова',
+    heroTitle: 'Улюблені персонажі. Твоя колекція.',
+    heroDescription: 'Відкрий світ культових героїв з фільмів, серіалів та мультфільмів.',
+    heroLabel: 'ТВОЯ КОЛЕКЦІЯ ПОЧИНАЄТЬСЯ ТУТ'
   },
 
   catalog: {

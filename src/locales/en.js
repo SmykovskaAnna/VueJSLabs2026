@@ -5,7 +5,10 @@ export default {
     catalog: 'Catalog',
     cart: 'Cart',
     profile: 'Profile',
-    language: 'Language'
+    language: 'Language',
+    heroTitle: 'Favorite characters. Your collection.',
+    heroDescription: 'Discover iconic heroes from movies, series and animation.',
+    heroLabel: 'YOUR COLLECTION STARTS HERE'
   },
 
   catalog: {
@@ -68,5 +71,7 @@ export default {
     formDescription: 'Enter your personal information',
     cancel: 'Cancel',
     confirmLogout: 'Are you sure you want to log out?',
+    namePlaceholder: 'Enter your name',
+    passwordPlaceholder: 'Enter your password',
   }
 }
