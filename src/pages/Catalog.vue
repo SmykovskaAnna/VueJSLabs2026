@@ -6,19 +6,18 @@ const { t } = useI18n()
 const cart = useCartStore()
 
 const products = [
-  { id: 1, price: 149, emoji: '🕷️' },
-  { id: 2, price: 179, emoji: '⚔️' },
-  { id: 3, price: 129, emoji: '⚡' },
-  { id: 4, price: 119, emoji: '🧅' },
-  { id: 5, price: 199, emoji: '🤖' },
-  { id: 6, price: 139, emoji: '👽' }
+  { id: 1, price: 1499, emoji: '🕷️' },
+  { id: 2, price: 1799, emoji: '⚔️' },
+  { id: 3, price: 1299, emoji: '⚡' },
+  { id: 4, price: 1999, emoji: '🤖' },
 ]
 
 function addToCart(product, index) {
   cart.add({
     id: product.id,
     title: t(`catalog.products.${index}.name`),
-    price: product.price
+    price: product.price,
+    emoji: product.emoji
   })
 }
 </script>
@@ -26,7 +25,6 @@ function addToCart(product, index) {
 <template>
   <div class="catalog">
     <div class="catalog-heading">
-      <span class="eyebrow">HEROBOX COLLECTION</span>
       <h1>{{ t('catalog.title') }}</h1>
       <p>{{ t('catalog.subtitle') }}</p>
     </div>
@@ -53,7 +51,7 @@ function addToCart(product, index) {
           </p>
 
           <div class="product-bottom">
-            <strong>{{ product.price }} zł</strong>
+            <strong>{{ product.price }} ₴</strong>
 
             <button @click="addToCart(product, index)">
               {{ t('catalog.add') }} +
@@ -73,13 +71,6 @@ function addToCart(product, index) {
 .catalog-heading {
   text-align: center;
   margin-bottom: 35px;
-}
-
-.eyebrow {
-  color: #8b5cf6;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
 }
 
 .catalog-heading h1 {

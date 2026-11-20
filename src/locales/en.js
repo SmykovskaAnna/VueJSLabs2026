@@ -30,19 +30,9 @@ export default {
         category: 'Harry Potter'
       },
       {
-        name: 'Shrek',
-        description: 'The most famous ogre',
-        category: 'Animation'
-      },
-      {
         name: 'Iron Man',
         description: 'Genius inventor and superhero',
         category: 'Marvel'
-      },
-      {
-        name: 'Grogu',
-        description: 'A little hero of a big galaxy',
-        category: 'Star Wars'
       }
     ]
   },

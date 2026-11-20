@@ -30,19 +30,9 @@ export default {
         category: 'Harry Potter'
       },
       {
-        name: 'Шрек',
-        description: 'Найвідоміший огр',
-        category: 'Animation'
-      },
-      {
         name: 'Залізна людина',
         description: 'Геніальний винахідник і супергерой',
         category: 'Marvel'
-      },
-      {
-        name: 'Ґрогу',
-        description: 'Маленький герой великої галактики',
-        category: 'Star Wars'
       }
     ]
   },
