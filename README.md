@@ -1,38 +1,46 @@
-# vue-project
+# Лабораторна робота №2 — Vue Admin
 
-This template should help get you started developing with Vue 3 in Vite.
+Прототип адмін-панелі на Vue 3, Vue Router 4 і Vite. Автентифікація імітується локально у браузері.
 
-## Recommended IDE Setup
+## Запуск
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
+cd lab2
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Для production-збірки:
 
-```sh
+```bash
 npm run build
+npm run preview
 ```
+
+## Можливості
+
+- `/` — стартова сторінка, `/login` і `/register` — форми входу та реєстрації.
+- `/admin/dashboard`, `/admin/users`, `/admin/user/:id`, `/admin/reports` — захищені сторінки панелі.
+- Невідомі адреси відкривають сторінку 404.
+- Дані користувачів і звітів для демонстрації зберігаються локально; реального API немає.
+
+## Де використані вимоги Vue
+
+- **props:** `StatCard` отримує назву й значення картки через props.
+- **emits:** `FormField` надсилає батьківській формі подію `blur`.
+- **v-model / defineModel:** `FormField.vue` використовує `defineModel()` для значення поля та `v-model` у формах.
+- **provide / inject:** `App.vue` передає реактивний стан автентифікації; сторінки входу, реєстрації та макет панелі отримують його через `inject`.
+- **Слоти:** `AuthCard.vue` надає основний слот та іменовані `header` і `footer` для форм.
+- **Роутинг:** `src/router/index.js` налаштовує `createWebHistory`, lazy-loaded сторінки, `scrollBehavior`, активний клас посилань, catch-all маршрут та `beforeEach` guard для `requiresAuth`.
+
+## Скриншоти
+
+![Стартова сторінка](screenshots/home.png)
+
+![Форма входу](screenshots/login.png)
+
+![Адмін-панель: звіти](screenshots/reports.png)
+
+![Реєстрація](screenshots/register.png)
+
+![Вітаємо](screenshots/first.png)
