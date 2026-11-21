@@ -31,3 +31,9 @@ npm run preview
 - `src/stores/cart.js` — вміст і підрахунки кошика.
 - `src/i18n.js`, `src/locales/` — налаштування локалізації та переклади.
 - `src/pages/` — сторінки каталогу, кошика й профілю.
+
+## Скріншоти для звіту
+![Home сторінка](screenshots/Home(1).jpg)
+![Home English сторінка](screenshots/Home(2).jpg)
+![Cart сторінка](screenshots/Cart.jpg)
+![Profile сторінка](screenshots/Profile.jpg)
