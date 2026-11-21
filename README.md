@@ -1,38 +1,43 @@
-# vue-project
+# Вісник — навчальний новинний сайт
 
-This template should help get you started developing with Vue 3 in Vite.
+Прототип новинного сайту для лабораторної роботи №3 зі стилізації компонентів у Vue.js. Дані статей зберігаються локально у `src/data/news.js`; сервер і база даних не потрібні.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Запуск
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Щоб зібрати production-версію:
 
 ```sh
 npm run build
+npm run preview
 ```
+
+## Сторінки
+
+- `/` — список новин.
+- `/article/:id` — повний матеріал зі статтею.
+- `/about` — інформація про редакцію.
+- невідомий шлях — сторінка 404.
+
+## Що реалізовано
+
+- Vue 3 Composition API, Vue Router 4 і навігація через `createWebHistory`.
+- Спільні хедер і футер; активний пункт меню та прокрутка угору після переходу.
+- Новини з локального масиву, повторно використовувана картка новини.
+- Два рекламні слоти. Натискання відкриває модальне вікно, яке закривається кнопкою, кліком поза вікном або клавішею Escape.
+- Перемикач світлої та темної теми у хедері. Вибір зберігається в `localStorage`.
+- CSS Modules у `NewsCard.vue` через файл `src/styles/NewsCard.module.css`; scoped-стилі — у сторінках та інших компонентах.
+- Плавна анімація переходу між маршрутами й окрема анімація модального вікна.
+
+## Стилізація у Vue.js
+
+`<style scoped>` обмежує звичайні стилі компонентом, тому правила різних компонентів менше конфліктують. CSS Modules вирішує схожу задачу через локальні імена класів, які компонент отримує як об’єкт стилів. Глобальні CSS-змінні зручно використовувати для спільних кольорів і перемикання теми. Компонент `<Transition>` додає анімацію до появи й зникнення елементів, а для маршрутів він працює разом із `RouterView`.
+
+## Скріншоти для звіту
+![Темна сторінка](screenshots/dark.png)
+
+![Світла сторінка](screenshots/light.png)
